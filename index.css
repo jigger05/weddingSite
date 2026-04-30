@@ -19,7 +19,8 @@ font-family: CormorantInfant-Light;
 }
 body {
   font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(135deg, #c4d8ed 0%, #c4d8ed 50%, #c4d8ed 100%);
+  /*background: linear-gradient(135deg, #c4d8ed 0%, #c4d8ed 50%, #c4d8ed 100%);*/
+  background: rgb(196, 216, 237);
   background-attachment: fixed;
   min-height: 100vh;
   display: flex;
@@ -32,15 +33,15 @@ body {
 
 /* Основная обёртка приглашения */
 .invitation-wrapper {
-  max-width: 700px;
+  max-width: 900px;
   width: 100%;
   background: rgb(196, 216, 237);
-  backdrop-filter: blur(8px);
+  /*backdrop-filter: blur(8px);*/
   border-radius: 2rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  /*box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);*/
   padding: 3rem 2rem;
   text-align: center;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  /*border: 1px solid rgba(212, 175, 55, 0.2);*/
   position: relative;
   overflow: hidden;
 }
@@ -75,10 +76,11 @@ body {
     top: 15%;
     position: relative;
     margin: auto;
-    width: 90%;
+    width: 99%;
     height: 80%;
     background-position: 50% 50%;
     background-color: #fff;
+    text-align: center;
 }
 .dearguest {
     font-size: 40.8371pt;
