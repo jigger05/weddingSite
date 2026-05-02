@@ -208,6 +208,12 @@ body {
   margin-right: 10%; 
   line-height: 0.5;
 }
+.photo-circle{
+  border-radius: 200px;
+  display: block;
+  margin: auto;
+  margin-bottom: 22px;
+}
 .schedule-text{
   font-family: CormorantInfant-Light; 
   color: rgb(128, 128, 128); 
