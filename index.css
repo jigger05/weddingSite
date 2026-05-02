@@ -24,6 +24,13 @@ font-family: Zing;
   font-style: normal;
   font-display: auto;
 }
+@font-face {
+font-family: CormorantInfant-Bold;
+  src: url('CormorantInfant-Bold.woff') format('woff'), url('CormorantInfant-Bold.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: auto;
+}
 body {
   font-family: 'Montserrat', sans-serif;
   /*background: linear-gradient(135deg, #c4d8ed 0%, #c4d8ed 50%, #c4d8ed 100%);*/
@@ -144,7 +151,70 @@ body {
     background: linear-gradient(135deg, rgba(183, 155, 97, .32), rgba(231, 211, 170, .32));
     pointer-events: none;
 }
-
+.answers-style{
+  text-align: left;
+  margin-left: 250px;
+}
+.questions-style{
+  text-align: left;
+  margin-left: 225px;
+  margin-bottom: 10px;
+}
+.ratio-item{
+  cursor: pointer;
+}
+.ratio-item input[type="radio"]{
+  appearance: none;
+  -webkit-appearance: none; /* Для Safari */
+  width: 20px;
+  height: 20px;
+  border: 2px solid #4a4a4a;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+}
+.ratio-item input[type="radio"]:checked{
+    border-color: #d4a843;
+    background-color: #d4a843;
+    box-shadow: inset 0 0 0 4px rgb(196, 216, 237);
+}
+.schedule-wrapper{
+  display: flex;
+}
+.schedule-time{
+  color: rgb(41, 30, 37); 
+  font-family: CormorantInfant-Bold; 
+  font-size: 16.2726pt; 
+  line-height: 1.5em; 
+  text-align: left; 
+  margin-left: 15%;
+}
+.schedule-title{
+  font-family: CormorantInfant-Bold; 
+  color: rgb(41, 30, 37); 
+  font-size: 18pt; 
+  text-align: right; 
+  letter-spacing: 0em; 
+  margin-left: auto;
+  margin-right: 10%;
+  margin-bottom: 0;
+}
+.schedule-subtitle{
+  line-height: 1em; 
+  font-family: CormorantInfant-Light; 
+  color: rgb(41, 30, 37); 
+  font-size: 14pt; 
+  text-align: right; 
+  margin-right: 10%; 
+  line-height: 0.5;
+}
+.schedule-text{
+  font-family: CormorantInfant-Light; 
+  color: rgb(128, 128, 128); 
+  font-size: 13pt; 
+  text-align: right; 
+  margin-right: 10%;
+}
 .floral-divider::after {
   content: "❁";
   position: absolute;
