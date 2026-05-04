@@ -153,11 +153,26 @@ body {
 }
 .answers-style{
   text-align: left;
+  font-family: CormorantInfant-Light;
+  font-size: 14pt;
  /* margin-left: 250px;*/
+}
+.answersinput-style{
+    width: 50%;
+    padding: 12px 16px;
+    background-color: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    font-family: CormorantInfant-Light;
+    font-size: 14pt;
 }
 .questions-style{
   text-align: left;
-  /*margin-left: 225px;*/
+  font-family: Lobster;
+  font-size: 18pt;
   margin-bottom: 10px;
 }
 .ratio-item{

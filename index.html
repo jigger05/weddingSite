@@ -102,10 +102,10 @@
         <div class="color" bg="#cceeff" style="background: rgb(204, 238, 255); border-radius: 40px; width: 40px; height: 40px;"></div>
       </div>
       <div><br/></div>
-      <button class="accept-button" style="width: 300px; height: 50px; background: rgb(207, 185, 237); border-radius: 200px; font-size: 13.7032pt; font-family: Lobster; color:#5a4a3f; letter-spacing: 0em;">Подтвердить</button>
       <!--<div style="font-size: 12pt; font-family: Zing; color: #808080;"><br/><br/>Добавить сообщение для жениха и невесты</div>-->
     </div>
-    <div><br/>Ответьте на вопросы от жениха и невесты!<br/><br/></div>
+ <form  id="myForm">
+    <div style="font-family: LeJardin; font-size: 22pt;"><br/>Ответьте на вопросы от жениха и невесты!<br/><br/></div>
     <div class="questions-style">Потребуется ли вам трансфер?</div>
       <div class="answers-style">
             <label class="ratio-item">
@@ -180,8 +180,9 @@
               <span>Не пью<br/></span>
             </label>
             <label class="ratio-item">
+              <input type="radio" name="ЧтоПьет" value="Свой вариант" />
               <span>Свой вариант:<br/></span>
-              <input type="text" id="AlcoVar" name="ПерсональныйАлкоголь"/>
+              <input class="answersinput-style" type="text" id="AlcoVar" name="СвойВариант"/>
             </label>
           </div>
           <div class="questions-style">Вы будете с детьми?</div>
@@ -195,11 +196,15 @@
               <span>Нет<br/></span>
             </label>
             <label class="ratio-item">
-              <input type="radio" name="Дети" value="Не ест рыбу" />
+              <input class="answers-style" type="radio" name="Дети" value="Не ест рыбу" />
               <span>Не знаем<br/></span>
             </label>
           </div>
       </div>
+      <div><br/><br/></div>
+      <button type="submit" class="accept-button" style="width: 300px; height: 50px; background: rgb(207, 185, 237); border-radius: 200px; font-size: 13.7032pt; font-family: Lobster; color:#5a4a3f; letter-spacing: 0em;">Подтвердить</button>
+      <div id="message"></div>
+ </form>
           <div><br/><br/><br/><br/></div>
           <div style="background: rgb(207, 185, 237); opacity: 1; background-image: url(stars.png);">
             <div class="dearguest" style="font-size: 25pt; margin-bottom: 100px;"><br/> Свадебное расписание</div>
@@ -250,7 +255,40 @@
           </div>
           <div style="display: flex; justify-content: center;"> <br/><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa11c1460302cfcbcc24cdd2be485034a8d7a3a021c1758e744b325e3acbc9a16&amp;width=500&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script><br/></div>
           </div>
-          
+<script>
+        const form = document.getElementById('myForm');
+        const messageDiv = document.getElementById('message');
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycby2z18Zabj3fuWGhBs2RfUTnsgxqgFLxTR6dk1zRM03noIHPzmpsVXitT6JmOVqJajlaA/exec'; // ЗАМЕНИТЕ на правильный URL
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            messageDiv.innerHTML = '<p>Отправка...</p>';
+            
+            const formData = new FormData(form);
+            // Превращаем FormData в объект, а потом в URL-кодированную строку
+            const data = new URLSearchParams(formData);
+            
+            fetch(scriptUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: data   // <-- ТЕПЕРЬ ТЕЛО ЕСТЬ
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.result === 'success') {
+                    messageDiv.innerHTML = '<p style="color:green;">✅ Успешно отправлено!</p>';
+                    form.reset();
+                } else {
+                    messageDiv.innerHTML = `<p style="color:red;">❌ Ошибка: ${data.error}</p>`;
+                }
+            })
+            .catch(error => {   // <-- УБРАЛИ ЛИШНЮЮ ТОЧКУ С ЗАПЯТОЙ ПЕРЕД .catch
+                messageDiv.innerHTML = `<p style="color:blue;">❌ Ошибка: ${error}</p>`;
+            });
+        });
+</script>
     <footer class="invitation-footer">
       <p>Мы ждём вас!</p>
     </footer>
