@@ -106,7 +106,12 @@
     </div>
  <form  id="myForm">
     <div style="font-family: LeJardin; font-size: 22pt;"><br/>Ответьте на вопросы от жениха и невесты!<br/><br/></div>
-    <div class="questions-style">Потребуется ли вам трансфер?</div>
+    <div class="questions-style" style="color:rgb(150, 149, 147); font-size: 14pt; text-align: center;">Если вы планируете прийти с мужем(женой) или с детьми, то, пожалуйста, пройдите опрос от их имени</div>
+    <div class="questions-style">Ваши фамилия и имя:</div>
+    <input class="answersinput-style" style="display: block; margin: left;" type="text" placeholder="Иванов Иван" id="Fi" name="ФамилияИмя"/>
+    <div class="questions-style">Ваш номер телефона (чтобы мы могли с вами связаться):</div>
+    <input class="answersinput-style" style="display: block; margin: left;" type="text" placeholder="+79995556633" id="number" name="НомерТелефона"/>
+    <!--<div class="questions-style">Потребуется ли вам трансфер?</div>
       <div class="answers-style">
             <label class="ratio-item">
               <input type="radio" name="Трансфер" value="Нет" required />
@@ -124,7 +129,7 @@
               <input type="radio" name="Трансфер" value="До и после торжества" />
               <span>До и после торжества<br/></span>
             </label>
-    </div>
+    </div>-->
       <div  style="text-align: center;">
         <div class="questions-style">Есть ли у вас особые предпочтения по еде?</div>
          <div class="answers-style">
@@ -143,6 +148,11 @@
             <label class="ratio-item">
               <input type="radio" name="ПредпочтенияПоЕде" value="Вегетарианец" />
               <span>Вегетарианец<br/></span>
+            </label>
+            <label class="ratio-item">
+              <input type="radio" name="ПредпочтенияПоЕде" value="Свой вариант"/>
+              <span>Свой вариант:<br/></span>
+              <input class="answersinput-style" type="text" id="AlcoVar" name="СвойВариантЕда" placeholder="Не ем помидоры"/>
             </label>
           </div>
           <div class="questions-style">Какой алкоголь предпочитаете?</div>
@@ -180,12 +190,12 @@
               <span>Не пью<br/></span>
             </label>
             <label class="ratio-item">
-              <input type="radio" name="ЧтоПьет" value="Свой вариант" />
+              <input type="radio" name="ЧтоПьет" value="Свой вариант"/>
               <span>Свой вариант:<br/></span>
-              <input class="answersinput-style" type="text" id="AlcoVar" name="СвойВариант"/>
+              <input class="answersinput-style" type="text" id="AlcoVar" name="СвойВариантАлко" placeholder="Кальвадос" />
             </label>
           </div>
-          <div class="questions-style">Вы будете с детьми?</div>
+          <!--<div class="questions-style">Вы будете с детьми?</div>
          <div class="answers-style">
             <label class="ratio-item">
               <input type="radio" name="Дети" value="Нет" required />
@@ -199,16 +209,16 @@
               <input class="answers-style" type="radio" name="Дети" value="Не ест рыбу" />
               <span>Не знаем<br/></span>
             </label>
-          </div>
+          </div>-->
       </div>
       <div><br/><br/></div>
       <button type="submit" class="accept-button" style="width: 300px; height: 50px; background: rgb(207, 185, 237); border-radius: 200px; font-size: 13.7032pt; font-family: Lobster; color:#5a4a3f; letter-spacing: 0em;">Подтвердить</button>
-      <div id="message"></div>
+      <div id="message" class="message"></div>
  </form>
           <div><br/><br/><br/><br/></div>
           <div style="background: rgb(207, 185, 237); opacity: 1; background-image: url(stars.png);">
-            <div class="dearguest" style="font-size: 25pt; margin-bottom: 100px;"><br/> Свадебное расписание</div>
-            <div>
+            <div class="dearguest" style="font-size: 25pt; margin-bottom: 30px;"><br/> Мы будем тут!</div>
+            <!--<div>
             <div class="schedule-wrapper">
               <div class="schedule-time">15:40</div>
               <div class="schedule-title">Торжественная регистрация брака</div>
@@ -252,8 +262,9 @@
             <div class="schedule-subtitle"><br/>Разъезд, чушпаны!</div>
             <div class="schedule-text">Текст<br/>Текст<br/>Текст</div>
           
-          </div>
-          <div style="display: flex; justify-content: center;"> <br/><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa11c1460302cfcbcc24cdd2be485034a8d7a3a021c1758e744b325e3acbc9a16&amp;width=500&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script><br/></div>
+          </div>-->
+          <div style="display: flex; justify-content: center;"><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa11c1460302cfcbcc24cdd2be485034a8d7a3a021c1758e744b325e3acbc9a16&amp;width=500&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script></div>
+          <div><br/><br/></div>
           </div>
 <script>
         const form = document.getElementById('myForm');
@@ -262,7 +273,7 @@
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            messageDiv.innerHTML = '<p>Отправка...</p>';
+            messageDiv.innerHTML = '<p>Отправка... Пожалуйста подождите. Обычно это занимает около 15 секунд</p>';
             
             const formData = new FormData(form);
             // Превращаем FormData в объект, а потом в URL-кодированную строку

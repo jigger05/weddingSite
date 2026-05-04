@@ -193,6 +193,11 @@ body {
     background-color: #d4a843;
     box-shadow: inset 0 0 0 4px rgb(196, 216, 237);
 }
+.message{
+  font-family: CormorantInfant-Bold;
+  font-size: 22pt;
+  text-align: center;
+}
 .schedule-wrapper{
   display: flex;
 }
