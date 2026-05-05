@@ -23,14 +23,14 @@
       <div style="width: 45%; height: 125%; background: rgb(255, 255, 255); display: block; margin: auto;">
         <br/>
         <img src="фотоКириллРебенок.png" width="300" height="300" style="max-width: 80%; height: auto;">
-        <div class="dearguest" style="font-size: 30pt;">Кирилл <br/></div>
+        <div class="dearguest" style="font-size: 25pt;">Кирилл <br/></div>
       </div>
     </div>
       <div class="gift-plus"><i>+</i></div>
       <div style="width: 45%; height: 125%; background: rgb(255, 255, 255); display: block; margin: auto;">
         <br/>
         <img src="фотоДашаРебенок.png" width="300" height="300" style="max-width: 80%; height: auto;">
-        <div class="dearguest" style="font-size: 30pt;">Дарья <br/></div>
+        <div class="dearguest" style="font-size: 25pt;">Дарья <br/></div>
       </div>
       <div class="main-title">
           <p><br/>Д + К = ❤</p>
@@ -46,54 +46,104 @@
         <div class="date-decoration right"></div>
       </div>
 
-      <div class="countdown">
-        <div class="countdown-item">
-          <span class="countdown-number">16</span>
-          <span class="countdown-label">недель</span>
+        <div class="countdown">
+          <div class="countdown-item">
+            <span class="countdown-number" id="weeks">16</span>
+            <span class="countdown-label">недель</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="days">05</span>
+            <span class="countdown-label">дней</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="hours">03</span>
+            <span class="countdown-label">часов</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="minutes">05</span>
+            <span class="countdown-label">минут</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="seconds">57</span>
+            <span class="countdown-label">секунд</span>
+          </div>
         </div>
-        <div class="countdown-item">
-          <span class="countdown-number">05</span>
-          <span class="countdown-label">дней</span>
-        </div>
-        <div class="countdown-item">
-          <span class="countdown-number">03</span>
-          <span class="countdown-label">часов</span>
-        </div>
-        <div class="countdown-item">
-          <span class="countdown-number">05</span>
-          <span class="countdown-label">минут</span>
-        </div>
-        <div class="countdown-item">
-          <span class="countdown-number">57</span>
-          <span class="countdown-label">секунд</span>
-        </div>
-      </div>
+      <script>
+        // Целевая дата свадьбы (22 августа 2026, полночь по местному времени)
+          const targetDate = new Date('2026-08-22T16:30:00');
+
+          function updateCountdown() {
+            const now = new Date();
+            const difference = targetDate - now; // разница в миллисекундах
+
+            // Если дата уже прошла, показываем нули и останавливаем таймер
+            if (difference <= 0) {
+              document.getElementById('weeks').textContent = '0';
+              document.getElementById('days').textContent = '0';
+              document.getElementById('hours').textContent = '0';
+              document.getElementById('minutes').textContent = '0';
+                      document.getElementById('seconds').textContent = '0';
+                      return;
+                    }
+
+                    // Переводим миллисекунды в секунды
+                    const totalSeconds = Math.floor(difference / 1000);
+
+                    // Вычисляем отдельные единицы времени
+                    const seconds = totalSeconds % 60;
+                    const totalMinutes = Math.floor(totalSeconds / 60);
+                    const minutes = totalMinutes % 60;
+                    const totalHours = Math.floor(totalMinutes / 60);
+                    const hours = totalHours % 24;
+                    const totalDays = Math.floor(totalHours / 24);
+
+                    // Из общего количества дней выделяем недели и оставшиеся дни
+                    const weeks = Math.floor(totalDays / 7);
+                    const days = totalDays % 7;
+
+                    // Записываем в HTML, дополняя нулями до двух знаков
+                    document.getElementById('weeks').textContent = weeks;
+                    document.getElementById('days').textContent = String(days).padStart(2, '0');
+                    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+                  }
+
+                  // Запускаем обновление каждую секунду
+                  setInterval(updateCountdown, 1000);
+
+                  // Чтобы не ждать первую секунду, вызываем функцию сразу
+                  updateCountdown();
+      </script>
     <div class="text-box">
       <div class="dearguest"><br/>Дорогой <br/> гость! <br/></div>
       <div class="text-line">
-        <div style="margin-left: -10px; margin-right: -10px; padding: 3rem;">Мы рады сообщить Вам, что 22.08.2026 состоится самое главное торжество в нашей жизни - день нашей свадьбы!
-          Приглашаем Вас разделить с нами радость этого незабываемого дня. <br/></div>
-        <div style="font-size:20pt"> 22.08.2026 в 16:30 <br/> <br/></div>
+        <div style="margin-left: -5px; margin-right: -5px; padding: 1rem;  font-size: 18pt;">Мы начинаем новый этап нашей жизни и будем счастливы, если вы разделите с нами этот важный день. Ваше присутствие станет для нас особой честью и поддержкой. Приглашаем вас на торжество, где появится новая семья.<br/></div>
+        <div style="font-size:18pt"> Наше мероприятие состоится 22.08.2026 в 16:30 в ресторане Чаплин по адресу ул. Крупская, д. 64Б, строение 1, зал LOFT <br/> <br/></div>
       </div>
       <div><img src="фотоДашаиКириллВместе.jpg" width="400" height="400" style="display: block; margin: auto; margin-bottom: 22px; max-width: 80%; height: auto;"></div>
       <div class="dearguest">
-        <div style="font-size:25pt; line-height: 15px; margin-bottom: 30px;"><br/>Там, где посеяна любовь, растет радость</div>
+        <div style="font-size:22pt; line-height: 15px; margin-bottom: 30px;"><br/>Там, где посеяна любовь, растет радость</div>
         <img src="ФотоКириллВзрослый.jpg" class="photo-circle" width="320" height="320" style="max-width: 80%; height: auto;">
         <p style="font-size:22pt; line-height: 0px; margin-top: 0px; margin-bottom: 30px;"><br/>Жених</p>
         <img src="ФотоДашаВзрослая.jpg" class="photo-circle" width="320" height="320" style="max-width: 80%; height: auto;">
         <p style="font-size:22pt; line-height: 5px; margin-top: 0px; margin-bottom: 30px;"><br/>Невеста</p>
       </div>
-      <div class="announcement" style="font-size: 20pt; margin-bottom: 5px;">Меню</div>
-      <div class="text-line" style="font-size: 17pt; margin-left: 75px; margin-right: 75px;">Какой-то текст про меню (типа там на сайте ваще левое гавно написано типа оно разнообразоне и т.п.)</div>
+      <div class="announcement" style="font-size: 20pt; margin-bottom: 5px;">Дети</div>
+      <div class="some-details">Не волнуйтесь, если вам не с кем оставить своих детей, мы будем очень рады видеть их на нашем торжестве и примем как самых важных гостей!</div>
       <div class="announcement" style="font-size: 20pt; margin-bottom: 5px;">Пожелания по подаркам</div>
-      <div class="text-line" style="font-size: 17pt; margin-left: 75px; margin-right: 75px;">Наверное тут что-то другое будет</div>
+      <div class="some-details">
+        Ваше присутствие в день нашей свадьбы - самый значимый подарок для нас!<br/>
+        Если хотите подарить нам ценный и нужный подарок, мы будем очень благодарны за вклад в бюджет нашей молодой семьи.<br/>
+        Мы понимаем, что дарить цветы на свадьбу - это традиция, но мы не сможем насладиться их красотой в полной мере...<br/>
+        Будем рады любой другой альтернативе (вино или в денежном эквиваленте).</div>
       <div class="announcement" style="font-size: 20pt; margin-bottom: 5px;">Примечания</div>
-      <div class="text-line" style="font-size: 17pt; margin-left: 75px; margin-right: 75px;">Тут, например, про то, что не воруем невесту</div>
+      <div class="some-details">Для нас этот день — про общую радость и неразлучность. Поэтому мы решили обойтись без традиционной «кражи невесты». Пожалуйста, поддержите наше желание оставаться вместе на протяжении всего праздника.</div>
       <div class="announcement" style="font-size: 20pt; margin-bottom: 5px;">Подтверждение</div>
-      <div class="text-line" style="font-size: 17pt; margin-left: 75px; margin-right: 75px;">Подтвердите своё присутствие на свадьбе до *дата*</div>
-      <div class="announcement" style="font-size: 20pt; margin-bottom: 5px;">Фото</div>
-      <div class="text-line" style="font-size: 17pt; margin-left: 75px; margin-right: 75px;">Тут по идее надо будет про приложуху и фото раскидать</div>
-      <div class="text-line" style="font-size: 12pt; margin-left: 75px; margin-right: 75px; margin-top: 50px;">Будем благодарны, если вы придете в одном из следующих цветов:</div>
+      <div class="some-details">Будем благодарны, если вы подтвердите своё присутствие на свадьбе до 14 мая 2026</div>
+      <!--<div class="announcement" style="font-size: 20pt; margin-bottom: 5px;">Фото</div>
+      <div class="some-details">Тут по идее надо будет про приложуху и фото раскидать</div>-->
+      <div class="text-line" style="font-size: 12pt; margin-left: 10px; margin-right: 10px; margin-top: 50px;">Вы станете украшением вечера, если в вашем наряде будут присутствовать оттенки нашей цветовой гаммы:</div>
       <div class="colors" style="gap: 12px; overflow: auto; display: flex; justify-content: center; margin-left: 0; margin-right: 0;">
         <div class="color" bg="#d8cbbe" style="background: rgb(216, 203, 190); border-radius: 40px; width: 40px; height: 40px;"></div>
         <div class="color" bg="#c9b8a6" style="background: rgb(201, 184, 166); border-radius: 40px; width: 40px; height: 40px;"></div>
@@ -106,10 +156,10 @@
     </div>
  <form  id="myForm">
     <div style="font-family: LeJardin; font-size: 22pt;"><br/>Ответьте на вопросы от жениха и невесты!<br/><br/></div>
-    <div class="questions-style" style="color:rgb(150, 149, 147); font-size: 14pt; text-align: center;">Если вы планируете прийти с мужем(женой) или с детьми, то, пожалуйста, пройдите опрос от их имени</div>
+    <div class="questions-style" style="color:rgb(150, 149, 147); font-size: 14pt; text-align: center;">Если вы планируете прийти с мужем/женой или с детьми, то, они должны пройти опрос отдельно</div>
     <div class="questions-style">Ваши фамилия и имя:</div>
     <input class="answersinput-style" style="display: block; margin: left;" type="text" placeholder="Иванов Иван" id="Fi" name="ФамилияИмя"/>
-    <div class="questions-style">Ваш номер телефона (чтобы мы могли с вами связаться):</div>
+    <div class="questions-style">Ваш номер телефона <br/>(чтобы мы могли с вами связаться):</div>
     <input class="answersinput-style" style="display: block; margin: left;" type="text" placeholder="+79995556633" id="number" name="НомерТелефона"/>
     <!--<div class="questions-style">Потребуется ли вам трансфер?</div>
       <div class="answers-style">
@@ -152,7 +202,7 @@
             <label class="ratio-item">
               <input type="radio" name="ПредпочтенияПоЕде" value="Свой вариант"/>
               <span>Свой вариант:<br/></span>
-              <input class="answersinput-style" type="text" id="AlcoVar" name="СвойВариантЕда" placeholder="Не ем помидоры"/>
+              <input class="answersinput-style" type="text" id="AlcoVar" name="СвойВариантЕда" placeholder="Мой вариант"/>
             </label>
           </div>
           <div class="questions-style">Какой алкоголь предпочитаете?</div>
@@ -180,10 +230,6 @@
             <label class="ratio-item">
               <input type="radio" name="ЧтоПьет" value="Водка" />
               <span>Водка<br/></span>
-            </label>
-            <label class="ratio-item">
-              <input type="radio" name="ЧтоПьет" value="Пью всё" />
-              <span>Пью всё<br/></span>
             </label>
             <label class="ratio-item">
               <input type="radio" name="ЧтоПьет" value="Не пью" />
@@ -217,7 +263,7 @@
  </form>
           <div><br/><br/><br/><br/></div>
           <div style="background: rgb(207, 185, 237); opacity: 1; background-image: url(stars.png);">
-            <div class="dearguest" style="font-size: 25pt; margin-bottom: 30px;"><br/> Мы будем тут!</div>
+            <div class="dearguest" style="font-size: 25pt; margin-bottom: 30px; color: rgb(196, 216, 237);"><br/> Мы будем тут!</div>
             <!--<div>
             <div class="schedule-wrapper">
               <div class="schedule-time">15:40</div>
@@ -263,7 +309,7 @@
             <div class="schedule-text">Текст<br/>Текст<br/>Текст</div>
           
           </div>-->
-          <div style="display: flex; justify-content: center;"><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa11c1460302cfcbcc24cdd2be485034a8d7a3a021c1758e744b325e3acbc9a16&amp;width=500&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script></div>
+          <div class="yandex-map" style="display: flex; justify-content: center;"><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa11c1460302cfcbcc24cdd2be485034a8d7a3a021c1758e744b325e3acbc9a16&amp;width=320&amp;height=320&amp;lang=ru_RU&amp;scroll=true"></script></div>
           <div><br/><br/></div>
           </div>
 <script>
